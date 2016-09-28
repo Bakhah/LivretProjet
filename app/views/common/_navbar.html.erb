@@ -35,9 +35,12 @@
         <% if user_signed_in? %>
           <li><%= link_to current_user.first_name + " " + current_user.last_name, edit_user_registration_path %></li>
           <li><%= link_to destroy_user_session_path, method: :delete do %>
-            <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
-            <% end %></li>      
+            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+            <% end %></li>
         <% else %>
+        <li><p class="navbar-text">
+          <span class="glyphicon glyphicon-arrow-right" aria-hidden="false"></span>
+        </p></li>
         <li><%= link_to "Se connecter", new_user_session_path %></li>
         <% end %>
       </ul>
