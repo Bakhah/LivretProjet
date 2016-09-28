@@ -4,35 +4,35 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+    <%= f.label :prénom %><br />
+    <%= f.text_field :first_name, required: true, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :surname %><br />
-    <%= f.text_field :surname %>
+    <%= f.label :nom %><br />
+    <%= f.text_field :last_name, required: true, autofocus: true  %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, required: true, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :mot_de_passe %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> caractères minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, required: true, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.label :confirmation_du_mot_de_passe %><br />
+    <%= f.password_field :password_confirmation, required: true, autocomplete: "off" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "S'inscrire" %>
   </div>
 <% end %>
 

@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">E-Livret</a>
+    <%= link_to "E-Livret", root_path, class: 'navbar-brand' %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -33,7 +33,10 @@
       <ul class="nav navbar-nav navbar-right">
 
         <% if user_signed_in? %>
-        <li><%= link_to current_user.name, edit_user_registration_path %></li>
+          <li><%= link_to current_user.first_name + " " + current_user.last_name, edit_user_registration_path %></li>
+          <li><%= link_to destroy_user_session_path, method: :delete do %>
+            <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+            <% end %></li>      
         <% else %>
         <li><%= link_to "Se connecter", new_user_session_path %></li>
         <% end %>
