@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161004125332) do
+ActiveRecord::Schema.define(version: 20161004134704) do
+
+  create_table "monthly_self_examinations", force: :cascade do |t|
+    t.string   "periode"
+    t.string   "what_ive_done"
+    t.string   "what_ive_learnt"
+    t.string   "what_ive_felt"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "user_id"
+  end
+
+  add_index "monthly_self_examinations", ["user_id"], name: "index_monthly_self_examinations_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",        null: false

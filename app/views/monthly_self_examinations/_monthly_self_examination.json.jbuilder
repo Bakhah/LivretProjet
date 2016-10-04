@@ -1,0 +1,2 @@
+json.extract! monthly_self_examination, :id, :periode, :what_ive_done, :what_ive_learnt, :what_ive_felt, :created_at, :updated_at
+json.url monthly_self_examination_url(monthly_self_examination, format: :json)
