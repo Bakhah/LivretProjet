@@ -29,7 +29,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
 gem 'awesome_print', '~> 1.7'
 
-
+gem 'rolify'
 
 
 
