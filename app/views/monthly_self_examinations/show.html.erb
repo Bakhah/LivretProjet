@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Periode:</strong>
+  <strong>Période :</strong>
   <%= @monthly_self_examination.periode %>
 </p>
 
 <p>
-  <strong>What ive done:</strong>
+  <strong>Ce que j'ai fait :</strong>
   <%= @monthly_self_examination.what_ive_done %>
 </p>
 
 <p>
-  <strong>What ive learnt:</strong>
+  <strong>Ce que j'ai appris :</strong>
   <%= @monthly_self_examination.what_ive_learnt %>
 </p>
 
 <p>
-  <strong>What ive felt:</strong>
+  <strong>Ce que j'ai ressenti :</strong>
   <%= @monthly_self_examination.what_ive_felt %>
 </p>
 
-<%= link_to 'Edit', edit_monthly_self_examination_path(@monthly_self_examination) %> |
-<%= link_to 'Back', monthly_self_examinations_path %>
+<%= link_to 'Modifier', edit_monthly_self_examination_path(@monthly_self_examination) %> |
+<%= link_to 'Retour', monthly_self_examinations_path %>

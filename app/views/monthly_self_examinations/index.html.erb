@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Monthly Self Examinations</h1>
+<h1>Auto-évaluations mensuelles</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Periode</th>
-      <th>What ive done</th>
-      <th>What ive learnt</th>
-      <th>What ive felt</th>
+      <th>Période</th>
+      <th>Ce que j'ai fait</th>
+      <th>Ce que j'ai appris</th>
+      <th>Ce que j'ai ressenti</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,9 +20,9 @@
         <td><%= monthly_self_examination.what_ive_done %></td>
         <td><%= monthly_self_examination.what_ive_learnt %></td>
         <td><%= monthly_self_examination.what_ive_felt %></td>
-        <td><%= link_to 'Show', monthly_self_examination %></td>
-        <td><%= link_to 'Edit', edit_monthly_self_examination_path(monthly_self_examination) %></td>
-        <td><%= link_to 'Destroy', monthly_self_examination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voir', monthly_self_examination %></td>
+        <td><%= link_to 'Modifier', edit_monthly_self_examination_path(monthly_self_examination) %></td>
+        <td><%= link_to 'Supprimer', monthly_self_examination, method: :delete, data: { confirm: 'Êtes-vous sûr(e) ?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Monthly self examination', new_monthly_self_examination_path %>
+<%= link_to 'Créer une nouvelle auto-évaluation', new_monthly_self_examination_path %>
