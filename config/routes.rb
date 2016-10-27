@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :monthly_self_examinations
   devise_for :users
   root to: "home#index"
+  get "student/:id/index" => "monthly_self_examinations#student_index", as: "student_index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

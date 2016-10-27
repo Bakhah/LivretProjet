@@ -4,13 +4,13 @@ class MonthlySelfExaminationsController < ApplicationController
     # GET /monthly_self_examinations
     # GET /monthly_self_examinations.json
     def index
-      @user = User.all
+      @users = User.all
       if current_user.has_role? :student
         @monthly_self_examinations = MonthlySelfExamination.where(user_id: current_user.id)
       elsif current_user.has_role? :teacher
-        @monthly_self_examinations = MonthlySelfExamination.all
+        @monthly_self_examinations = MonthlySelfExamination.where(user_id: User.where(teacher_id: current_user.id))
       elsif current_user.has_role? :tutor
-        @monthly_self_examinations = MonthlySelfExamination.where(user_id: current_user.id)
+        @monthly_self_examinations = MonthlySelfExamination.where(user_id: User.where(tutor_id: current_user.id))
       else
         @monthly_self_examinations = MonthlySelfExamination.all
       end
@@ -19,6 +19,11 @@ class MonthlySelfExaminationsController < ApplicationController
     # GET /monthly_self_examinations/1
     # GET /monthly_self_examinations/1.json
     def show
+    end
+
+    def student_index
+      @student = User.find(params[:id])
+      @student_examinations = MonthlySelfExamination.where(user_id: @student.id)
     end
 
     # GET /monthly_self_examinations/new

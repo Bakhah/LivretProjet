@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Période :</strong>
@@ -20,5 +19,5 @@
   <%= @monthly_self_examination.what_ive_felt %>
 </p>
 
-<%= link_to 'Modifier', edit_monthly_self_examination_path(@monthly_self_examination) %> |
+<%= link_to 'Modifier', edit_monthly_self_examination_path(@monthly_self_examination, class: "btn btn-warning") %> |
 <%= link_to 'Retour', monthly_self_examinations_path %>
