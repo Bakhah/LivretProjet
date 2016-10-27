@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :periode %><br>
-    <%= f.text_field :periode %>
-  </div>
+    <%= f.label :periode, "Période" %><br>
+    <%= f.text_field :periode, class: "form-control" %>
+  </div><br>
   <div class="field">
-    <%= f.label :what_ive_done %><br>
-    <%= f.text_field :what_ive_done %>
-  </div>
+    <%= f.label :what_ive_done, "Ce que j'ai fais" %><br>
+    <%= f.text_area :what_ive_done, class: "form-control" %>
+  </div><br>
   <div class="field">
-    <%= f.label :what_ive_learnt %><br>
-    <%= f.text_field :what_ive_learnt %>
-  </div>
+    <%= f.label :what_ive_learnt, "Ce que j'ai appris" %><br>
+    <%= f.text_area :what_ive_learnt, class: "form-control" %>
+  </div><br>
   <div class="field">
-    <%= f.label :what_ive_felt %><br>
-    <%= f.text_field :what_ive_felt %>
-  </div>
+    <%= f.label :what_ive_felt, "Ce que j'ai ressenti" %><br>
+    <%= f.text_area :what_ive_felt, class: "form-control" %>
+  </div><br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Enregister", class: "btn btn-primary"%>
   </div>
 <% end %>

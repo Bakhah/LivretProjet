@@ -1,10 +1,19 @@
 class MonthlySelfExaminationsController < ApplicationController
     before_action :set_monthly_self_examination, only: [:show, :edit, :update, :destroy]
-
+    before_action :authenticate_user!
     # GET /monthly_self_examinations
     # GET /monthly_self_examinations.json
     def index
+      @user = User.all
+      if current_user.has_role? :student
+        @monthly_self_examinations = MonthlySelfExamination.where(user_id: current_user.id)
+      elsif current_user.has_role? :teacher
         @monthly_self_examinations = MonthlySelfExamination.all
+      elsif current_user.has_role? :tutor
+        @monthly_self_examinations = MonthlySelfExamination.where(user_id: current_user.id)
+      else
+        @monthly_self_examinations = MonthlySelfExamination.all
+      end
     end
 
     # GET /monthly_self_examinations/1
@@ -31,7 +40,7 @@ class MonthlySelfExaminationsController < ApplicationController
 
         respond_to do |format|
             if @monthly_self_examination.save
-                format.html { redirect_to @monthly_self_examination, notice: 'Monthly self examination was successfully created.' }
+                format.html { redirect_to @monthly_self_examination, notice: 'Votre auto-évaluation a bien été créée.' }
                 format.json { render :show, status: :created, location: @monthly_self_examination }
             else
                 format.html { render :new }
@@ -45,7 +54,7 @@ class MonthlySelfExaminationsController < ApplicationController
     def update
         respond_to do |format|
             if @monthly_self_examination.update(monthly_self_examination_params)
-                format.html { redirect_to @monthly_self_examination, notice: 'Monthly self examination was successfully updated.' }
+                format.html { redirect_to @monthly_self_examination, notice: 'Votre auto-évaluation a bien été mise à jour.' }
                 format.json { render :show, status: :ok, location: @monthly_self_examination }
             else
                 format.html { render :edit }
@@ -59,7 +68,7 @@ class MonthlySelfExaminationsController < ApplicationController
     def destroy
         @monthly_self_examination.destroy
         respond_to do |format|
-            format.html { redirect_to monthly_self_examinations_url, notice: 'Monthly self examination was successfully destroyed.' }
+            format.html { redirect_to monthly_self_examinations_url, notice: 'Votre auto-évaluation a bien été supprimée.' }
             format.json { head :no_content }
         end
     end
