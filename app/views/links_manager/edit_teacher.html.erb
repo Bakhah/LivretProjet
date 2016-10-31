@@ -1,0 +1,9 @@
+<div class="page-header">
+  <h1>Modifier le professeur pour <%= get_user_full_name(@student_focused) %></h1>
+</div>
+
+<h3>Choisissez un nouveau professeur parmi la liste :</h3>
+
+<% @teachers.each do |teacher| %>
+<%= link_to get_user_full_name(teacher), "#", class: "btn btn-warning btn-lg" %>
+<% end %>

@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get "role_manager/:id/edit" => "role_manager#edit", as: "edit_role_manager"
   post "role_manager/index/:id/:role" => "role_manager#update_role", as: "role_manager_update_role"
 
+  get "links_manager/index" => "links_manager#index", as: "links_manager"
+  get "links_manager/:id/edit_teacher" => "links_manager#edit_teacher", as: "links_manager_edit_teacher"
+  get "links_manager/:id/edit_tutor" => "links_manager#edit_tutor", as: "links_manager_edit_tutor"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

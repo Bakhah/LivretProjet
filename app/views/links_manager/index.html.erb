@@ -1,0 +1,35 @@
+<div class="page-header">
+    <h1>
+        Gestion des liens
+        <small>Cliquez pour modifier</small>
+    </h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h3>Etudiant</h3>
+            </th>
+            <th>
+                <h3>Professeur</h3>
+            </th>
+            <th>
+                <h3>Tuteur</h3>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @students.each do |student| %>
+        <tr>
+            <% tutor = User.find(student.tutor_id)
+               teacher = User.find(student.teacher_id)
+            %>
+            <td><h4><%= get_user_full_name(student) %></h4></td>
+            <td><%= link_to get_user_full_name(teacher), links_manager_edit_teacher_path(student), class: "btn btn-warning btn-lg" %></td>
+            <td><%= link_to get_user_full_name(tutor), links_manager_edit_tutor_path(student), class: "btn btn-danger btn-lg" %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
