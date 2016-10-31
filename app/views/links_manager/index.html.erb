@@ -23,12 +23,31 @@
     <tbody>
         <% @students.each do |student| %>
         <tr>
-            <% tutor = User.find(student.tutor_id)
+            <%
+            if student.tutor_id != nil
+              tutor = User.find(student.tutor_id)
+            end
+            if student.teacher_id != nil
                teacher = User.find(student.teacher_id)
+            end
             %>
-            <td><h4><%= get_user_full_name(student) %></h4></td>
-            <td><%= link_to get_user_full_name(teacher), links_manager_edit_teacher_path(student), class: "btn btn-warning btn-lg" %></td>
-            <td><%= link_to get_user_full_name(tutor), links_manager_edit_tutor_path(student), class: "btn btn-danger btn-lg" %></td>
+            <td>
+                <h4><%= get_user_full_name(student) %></h4>
+            </td>
+            <td>
+                <% if student.teacher_id != nil %>
+                  <%= link_to get_user_full_name(teacher), links_manager_edit_teacher_path(student), class: "btn btn-warning btn-lg" %>
+                <% else %>
+                  <%= link_to "Aucun", links_manager_edit_teacher_path(student), class: "btn btn-default btn-lg" %>
+                <% end %>
+            </td>
+            <td>
+                <% if student.tutor_id != nil %>
+                  <%= link_to get_user_full_name(tutor), links_manager_edit_tutor_path(student), class: "btn btn-danger btn-lg" %>
+                <% else %>
+                  <%= link_to "Aucun", links_manager_edit_tutor_path(student), class: "btn btn-default btn-lg" %>
+                <% end %>
+            </td>
         </tr>
         <% end %>
     </tbody>

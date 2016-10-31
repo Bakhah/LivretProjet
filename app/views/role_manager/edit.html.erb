@@ -12,6 +12,6 @@
     <%= get_user_full_name(@user_focused) %>
 </h3>
 
-<%= link_to "Etudiant", role_manager_update_role_path(@user_focused, "student"), method: :post, class: "btn btn-success btn-lg" %>
-<%= link_to "Professeur", role_manager_update_role_path(@user_focused, "teacher"), method: :post, class: "btn btn-warning btn-lg" %>
-<%= link_to "Tuteur", role_manager_update_role_path(@user_focused, "tutor"), method: :post, class: "btn btn-danger btn-lg" %>
+<%= link_to "Etudiant", role_manager_update_role_path(@user_focused, "student"), method: :patch, class: "btn btn-success btn-lg" %>
+<%= link_to "Professeur", role_manager_update_role_path(@user_focused, "teacher"), method: :patch, class: "btn btn-warning btn-lg" %>
+<%= link_to "Tuteur", role_manager_update_role_path(@user_focused, "tutor"), method: :patch, class: "btn btn-danger btn-lg" %>

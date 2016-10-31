@@ -5,5 +5,5 @@
 <h3>Choisissez un nouveau tuteur parmi la liste :</h3>
 
 <% @tutors.each do |tutor| %>
-<%= link_to get_user_full_name(tutor), "#", class: "btn btn-warning btn-lg" %>
+<%= link_to get_user_full_name(tutor), links_manager_update_tutor_path(@student_focused, tutor), method: :patch, class: "btn btn-danger btn-lg" %>
 <% end %>

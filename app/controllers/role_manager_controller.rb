@@ -2,7 +2,6 @@ class RoleManagerController < ApplicationController
     before_action :authenticate_user!
 
     def index
-      puts "<h1>TEST</h1>"
         @students = User.with_role(:student)
         @teachers = User.with_role(:teacher)
         @tutors = User.with_role(:tutor)

@@ -5,5 +5,5 @@
 <h3>Choisissez un nouveau professeur parmi la liste :</h3>
 
 <% @teachers.each do |teacher| %>
-<%= link_to get_user_full_name(teacher), "#", class: "btn btn-warning btn-lg" %>
+<%= link_to get_user_full_name(teacher), links_manager_update_teacher_path(@student_focused, teacher), method: :patch, class: "btn btn-danger btn-lg" %>
 <% end %>
