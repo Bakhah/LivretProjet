@@ -1,0 +1,11 @@
+<ul class="nav navbar-nav">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mes élèves<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <% get_student_list.each do |student| %>
+            <li><%= link_to get_user_full_name(student), student_menu_path(student.id) %></li>
+            <% end %>
+        </ul>
+    </li>
+</ul>

@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   get "student/:id/index" => "monthly_self_examinations#student_index", as: "student_index"
   get "teacher/:id/menu" => "students#menu", as: "student_menu"
 
+  get "role_manager/index" => "role_manager#index", as: "role_manager"
+  get "role_manager/:id/edit" => "role_manager#edit", as: "edit_role_manager"
+  post "role_manager/index/:id/:role" => "role_manager#update_role", as: "role_manager_update_role"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

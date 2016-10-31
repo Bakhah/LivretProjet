@@ -31,6 +31,8 @@ gem 'awesome_print', '~> 1.7'
 
 gem 'rolify'
 
+gem 'cancancan'
+
 
 
 # Use ActiveModel has_secure_password
