@@ -5,9 +5,7 @@
 <h2>étudiants</h2>
 <% @students.each do |student| %>
 <div class="col-md-4">
-    <div class="container">
         <%= link_to get_user_full_name(student), edit_role_manager_path(student), class: "btn btn-success btn-lg" %>
-    </div>
 </div>
 
 <% end %>
@@ -18,7 +16,7 @@
 <h2>professeurs</h2>
 <% @teachers.each do |teacher| %>
 <div class="col-md-4">
-    <%= link_to get_user_full_name(teacher), edit_role_manager_path(teacher), class: "btn btn-success btn-lg" %>
+    <%= link_to get_user_full_name(teacher), edit_role_manager_path(teacher), class: "btn btn-warning btn-lg" %>
 </div>
 <% end %>
 
@@ -28,7 +26,7 @@
 <h2>tuteurs</h2>
 <% @tutors.each do |tutor| %>
 <div class="col-md-4">
-    <%= link_to get_user_full_name(tutor), edit_role_manager_path(tutor), class: "btn btn-success btn-lg" %>
+    <%= link_to get_user_full_name(tutor), edit_role_manager_path(tutor), class: "btn btn-danger btn-lg" %>
 </div>
 <% end %>
 
