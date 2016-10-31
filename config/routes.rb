@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
   get "student/:id/index" => "monthly_self_examinations#student_index", as: "student_index"
+  get "teacher/:id/menu" => "students#menu", as: "student_menu"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -14,25 +14,25 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Auto-Evaluations", monthly_self_examinations_path%></li>
-        <li><a href="#">Link</a></li>
+        <% if user_signed_in? and current_user.has_role? :student %>
+          <li><%= link_to "Auto-Evaluations", monthly_self_examinations_path%></li>
+        <% end %>
+        <% if user_signed_in? and (current_user.has_role? :tutor or current_user.has_role? :teacher) %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mes élèves<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+        <% get_student_list.each do |student| %>
+        <li><%= link_to get_student_name(student), student_menu_path(student.id) %></li>
+        <% end %>
+        </ul>
+      </li>
+        <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
 
         <% if user_signed_in? %>
+          <li class="active"><a href="#"><%= get_role_string %></a></li>
           <li><%= link_to current_user.first_name + " " + current_user.last_name, edit_user_registration_path %></li>
           <li><%= link_to destroy_user_session_path, method: :delete do %>
             <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>

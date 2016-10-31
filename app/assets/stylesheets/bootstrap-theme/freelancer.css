@@ -126,7 +126,6 @@ header .intro-text .skills {
   letter-spacing: 1px;
 }
 .navbar-custom .navbar-nav li a {
-  color: white;
 }
 .navbar-custom .navbar-nav li a:hover {
   color: #18BC9C;
@@ -247,6 +246,7 @@ section.success {
 }
 .floating-label-form-group {
   position: relative;
+  margin-top: 1.2em;
   margin-bottom: 0;
   padding-bottom: 0.5em;
   border-bottom: 1px solid #eeeeee;
@@ -338,7 +338,6 @@ footer .footer-below {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-  color: white;
   background-color: #1a242f;
   border-color: #161f29;
 }

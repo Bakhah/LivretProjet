@@ -1,23 +1,27 @@
+<div class="page-header">
+  <h2><%= get_student_name(@monthly_self_examination.user_id) %></h2>
+    <h3>Période :
+        <small><%= @monthly_self_examination.periode %></small>
+    </h3>
+</div>
 
 <p>
-  <strong>Période :</strong>
-  <%= @monthly_self_examination.periode %>
+    <h4>Ce que j'ai fait :</h4>
+    <%= @monthly_self_examination.what_ive_done %>
 </p>
-
+<hr>
 <p>
-  <strong>Ce que j'ai fait :</strong>
-  <%= @monthly_self_examination.what_ive_done %>
+    <h4>Ce que j'ai appris :</h4>
+    <%= @monthly_self_examination.what_ive_learnt %>
 </p>
-
+<hr>
 <p>
-  <strong>Ce que j'ai appris :</strong>
-  <%= @monthly_self_examination.what_ive_learnt %>
+    <h4>Ce que j'ai ressenti :</h4>
+    <%= @monthly_self_examination.what_ive_felt %>
 </p>
-
-<p>
-  <strong>Ce que j'ai ressenti :</strong>
-  <%= @monthly_self_examination.what_ive_felt %>
-</p>
-
-<%= link_to 'Modifier', edit_monthly_self_examination_path(@monthly_self_examination, class: "btn btn-warning") %> |
-<%= link_to 'Retour', monthly_self_examinations_path %>
+<hr>
+<% if @monthly_self_examination.user_id == current_user.id %>
+<%= link_to 'Modifier', edit_monthly_self_examination_path(@monthly_self_examination), class: "btn btn-warning" %>
+<% end %>
+<%= link_to 'Retour', monthly_self_examinations_path, class: "btn btn-danger" %>
+<%= link_to 'Imprimer', '#', :onclick => 'window.print();return false;', class: "btn btn-success"%>

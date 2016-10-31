@@ -31,8 +31,8 @@
         <% @monthly_self_examinations.each do |monthly_self_examination| %>
         <tr>
             <% student = @users.find(monthly_self_examination.user_id)%>
-            <% student_name = student.first_name + ' ' + student.last_name %>
-            <td><%= link_to student_name, student_index_path(student.id), class: "btn btn-success" %></td>
+            <% student_name = get_student_name(monthly_self_examination.user_id) %>
+            <td><%= link_to student_name, student_index_path(student.id), class: "btn btn-success btn-lg" %></td>
             <td><%= monthly_self_examination.periode %></td>
             <td><%= monthly_self_examination.what_ive_done %></td>
             <td><%= monthly_self_examination.what_ive_learnt %></td>
