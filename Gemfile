@@ -33,6 +33,8 @@ gem 'rolify'
 
 gem 'cancancan'
 
+gem "tabs_on_rails"
+
 
 
 # Use ActiveModel has_secure_password

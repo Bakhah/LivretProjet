@@ -22,7 +22,7 @@
 
 class User < ActiveRecord::Base
     rolify before_add: :before_add_method
-    rolify after_create: :assign_default_role
+    rolify after_create: :assign_role
 
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -33,9 +33,16 @@ class User < ActiveRecord::Base
         # do something before it gets added
     end
 
-    after_create :assign_default_role
+    after_create :assign_role
 
-    def assign_default_role
-      self.add_role(:student) if self.roles.blank?
+    def assign_role
+        case role_at_creation
+        when 'teacher'
+            add_role(:teacher)
+        when 'tutor'
+            add_role(:tutor)
+        else
+            add_role(:student)
+        end
     end
 end

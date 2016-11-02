@@ -1,0 +1,26 @@
+<%= devise_error_messages! %>
+
+<ul class="nav nav-pills" , role="tablist">
+    <li role="role" class="active">
+        <a href="#student_form" aria-controls="student_form" role="tab" data-toggle="pill">Étudiant</a>
+    </li>
+    <li role="role">
+        <a href="#teacher_form" aria-controls="teacher_form" role="tab" data-toggle="pill">Professeur</a>
+    </li>
+    <li role="role">
+        <a href="#tutor_form" aria-controls="tutor_form" role="tab" data-toggle="pill">Tuteur</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="student_form">
+        <%= render "users/registrations/form_student" %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="teacher_form">
+        <%= render "users/registrations/form_teacher" %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="tutor_form">
+        <%= render "users/registrations/form_tutor" %>
+    </div>
+</div>

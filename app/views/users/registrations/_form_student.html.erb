@@ -1,0 +1,37 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+<div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+        <%= f.text_field :first_name, required: true, autofocus: true, placeholder: "Prénom", class: "form-control" %>
+        <p class="help-block text-danger"></p>
+    </div>
+</div>
+<div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+        <%= f.text_field :last_name, required: true, autofocus: true, placeholder: "Nom", class: "form-control"  %>
+        <p class="help-block text-danger"></p>
+    </div>
+</div>
+<div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+        <%= f.email_field :email, required: true, autofocus: true, placeholder: "Email", class: "form-control" %>
+        <p class="help-block text-danger"></p>
+    </div>
+</div>
+<div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+        <%= f.password_field :password, required: true, autocomplete: "off", placeholder: "Mot de passe (6 caractères minimum)", class: "form-control" %>
+        <p class="help-block text-danger"></p>
+    </div>
+</div>
+<div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+        <%= f.password_field :password_confirmation, required: true, autocomplete: "off", placeholder: "Confirmation", class: "form-control" %>
+        <p class="help-block text-danger"></p>
+    </div>
+</div>
+
+<div class="actions">
+    <%= f.submit "S'inscrire en tant qu'étudiant", class: "btn btn-primary btn-lg" %>
+</div>
+<% end %>

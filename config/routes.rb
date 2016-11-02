@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :monthly_self_examinations
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   root to: "home#index"
   get "student/:id/index" => "monthly_self_examinations#student_index", as: "student_index"
   get "teacher/:id/menu" => "students#menu", as: "student_menu"

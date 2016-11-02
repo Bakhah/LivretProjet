@@ -502,3 +502,8 @@ fieldset[disabled] .btn-success.active {
   opacity: 0;
   display: none;
 }
+
+.active {
+  border-color: black;
+  font-weight: bold;
+}
