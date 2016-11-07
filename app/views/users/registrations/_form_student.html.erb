@@ -30,8 +30,9 @@
         <p class="help-block text-danger"></p>
     </div>
 </div>
+<%= f.hidden_field :role_at_creation, :value => "student" %>
 
 <div class="actions">
-    <%= f.submit "S'inscrire en tant qu'étudiant", class: "btn btn-primary btn-lg" %>
+    <%= f.submit "S'inscrire en tant qu'étudiant", class: "btn btn-info btn-lg" %>
 </div>
 <% end %>
