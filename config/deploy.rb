@@ -46,10 +46,6 @@ SSHKit.config.command_map[:rake] = "#{fetch(:default_env)[:rvm_bin_path]}/rvm ru
 
 namespace :deploy do
 
-  desc "Symlink shared config files"
-  task :symlink_config_files do
-      run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
-  end
 
   #desc "Restart Passenger app"
   #task :restart do
