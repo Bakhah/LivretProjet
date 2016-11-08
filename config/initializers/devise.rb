@@ -145,6 +145,7 @@ Devise.setup do |config|
   # Invalidates all the remember me tokens when the user signs out.
   config.expire_all_remember_me_on_sign_out = true
 
+
   # If true, extends the user's remember period when remembered via cookie.
   # config.extend_remember_period = false
 
@@ -271,4 +272,5 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+  config.secret_key = 'e0d216fa7fc41da2e2f480efaeaf796bccd807ee219d07fa36aaa60d2e4cda1fd233823fef15999132e15866ff6f0c3077431146872e4042afc811f6e6f17fd9'
 end

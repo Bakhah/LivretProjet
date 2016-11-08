@@ -8,10 +8,11 @@ set :repo_url, 'git@github.com:Bakhah/LivretProjet.git'
 
 # Default deploy_to directory is /var/www/my_app
 # set :deploy_to, '/var/www/my_app'
-
+set :deploy_to, '/home/deploy/LivretProjet'
 # Default value for :scm is :git
 # set :scm, :git
-
+set :scm, :git
+set :branch, "master"
 # Default value for :format is :pretty
 # set :format, :pretty
 
@@ -32,13 +33,28 @@ set :repo_url, 'git@github.com:Bakhah/LivretProjet.git'
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+set :rails_env, "production"
+set :deploy_via, :copy
 
-set :deploy_to, '/home/deploy/LivretProjet'
 
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
+set :rvm_ruby_version, '2.3.1'
+set :default_env, { rvm_bin_path: '~/.rvm/bin' }
+SSHKit.config.command_map[:rake] = "#{fetch(:default_env)[:rvm_bin_path]}/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec rake"
+
 namespace :deploy do
+
+  desc "Symlink shared config files"
+  task :symlink_config_files do
+      run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
+  end
+
+  #desc "Restart Passenger app"
+  #task :restart do
+  #  run "#{ try_sudo } touch #{ File.join(current_path, 'tmp', 'restart.txt') }"
+  #end
 
   desc 'Restart application'
   task :restart do
@@ -47,6 +63,7 @@ namespace :deploy do
     end
   end
 
+  after "deploy", "deploy:symlink_config_files"
   after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
 end
