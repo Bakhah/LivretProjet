@@ -1,0 +1,54 @@
+<div class="page-header">
+    <h1>
+        Gestion des liens
+        <small>Cliquez pour modifier</small>
+    </h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h3>Etudiant</h3>
+            </th>
+            <th>
+                <h3>Professeur</h3>
+            </th>
+            <th>
+                <h3>Tuteur</h3>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @students.each do |student| %>
+        <tr>
+            <%
+            if student.tutor_id != nil
+              tutor = User.find(student.tutor_id)
+            end
+            if student.teacher_id != nil
+               teacher = User.find(student.teacher_id)
+            end
+            %>
+            <td>
+                <h4><%= get_user_full_name(student) %></h4>
+            </td>
+            <td>
+                <% if student.teacher_id != nil %>
+                  <%= link_to get_user_full_name(teacher), links_manager_edit_teacher_path(student), class: "btn btn-warning btn-lg" %>
+                <% else %>
+                  <%= link_to "Aucun", links_manager_edit_teacher_path(student), class: "btn btn-default btn-lg" %>
+                <% end %>
+            </td>
+            <td>
+                <% if student.tutor_id != nil %>
+                  <%= link_to get_user_full_name(tutor), links_manager_edit_tutor_path(student), class: "btn btn-danger btn-lg" %>
+                <% else %>
+                  <%= link_to "Aucun", links_manager_edit_tutor_path(student), class: "btn btn-default btn-lg" %>
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

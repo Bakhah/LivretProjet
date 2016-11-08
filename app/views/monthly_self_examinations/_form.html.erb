@@ -1,0 +1,33 @@
+<%= form_for(@monthly_self_examination) do |f| %>
+  <% if @monthly_self_examination.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@monthly_self_examination.errors.count, "error") %> prohibited this monthly_self_examination from being saved:</h2>
+
+      <ul>
+      <% @monthly_self_examination.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :periode, "Période" %><br>
+    <%= f.text_field :periode, class: "form-control" %>
+  </div><br>
+  <div class="field">
+    <%= f.label :what_ive_done, "Ce que j'ai fais" %><br>
+    <%= f.text_area :what_ive_done, class: "form-control" %>
+  </div><br>
+  <div class="field">
+    <%= f.label :what_ive_learnt, "Ce que j'ai appris" %><br>
+    <%= f.text_area :what_ive_learnt, class: "form-control" %>
+  </div><br>
+  <div class="field">
+    <%= f.label :what_ive_felt, "Ce que j'ai ressenti" %><br>
+    <%= f.text_area :what_ive_felt, class: "form-control" %>
+  </div><br>
+  <div class="actions">
+    <%= f.submit "Enregister", class: "btn btn-primary"%>
+  </div>
+<% end %>

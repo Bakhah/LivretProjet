@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Auto-évaluations mensuelles</h1>
+<% if current_user.has_role? :student %>
+   <%= link_to 'Créer une nouvelle auto-évaluation', new_monthly_self_examination_path, class: "btn btn-info btn-lg" %>
+<% end %>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h4>Nom de l'élève</h4>
+            </th>
+            <th>
+                <h4>Période</h4>
+            </th>
+            <th>
+                <h4>Ce que j'ai fait</h4>
+            </th>
+            <th>
+                <h4>Ce que j'ai appris</h4>
+            </th>
+            <th>
+                <h4>Ce que j'ai ressenti</h4>
+            </th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @monthly_self_examinations.each do |monthly_self_examination| %>
+        <tr>
+            <% student = @users.find(monthly_self_examination.user_id)%>
+            <% student_name = get_user_full_name(monthly_self_examination.user_id) %>
+            <td><%= link_to student_name, student_index_path(student.id), class: "btn btn-success btn-lg" %></td>
+            <td><%= monthly_self_examination.periode %></td>
+            <td><%= monthly_self_examination.what_ive_done %></td>
+            <td><%= monthly_self_examination.what_ive_learnt %></td>
+            <td><%= monthly_self_examination.what_ive_felt %></td>
+            <td><%= link_to 'Voir', monthly_self_examination , class: "btn btn-primary"%></td>
+
+            <%if current_user.has_role? :student %>
+              <td><%= link_to 'Modifier', edit_monthly_self_examination_path(monthly_self_examination), class: "btn btn-warning" %></td>
+              <td><%= link_to 'Supprimer', monthly_self_examination, method: :delete, data: { confirm: 'Êtes-vous sûr(e) ?' }, class: "btn btn-danger" %></td>
+            <%end%>
+
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<br>

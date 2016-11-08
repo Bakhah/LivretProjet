@@ -1,0 +1,1 @@
+json.partial! "monthly_self_examinations/monthly_self_examination", monthly_self_examination: @monthly_self_examination

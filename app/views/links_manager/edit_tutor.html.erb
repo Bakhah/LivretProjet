@@ -1,0 +1,9 @@
+<div class="page-header">
+  <h1>Modifier le tuteur pour <%= get_user_full_name(@student_focused) %></h1>
+</div>
+
+<h3>Choisissez un nouveau tuteur parmi la liste :</h3>
+
+<% @tutors.each do |tutor| %>
+<%= link_to get_user_full_name(tutor), links_manager_update_tutor_path(@student_focused, tutor), method: :patch, class: "btn btn-danger btn-lg" %>
+<% end %>

@@ -1,0 +1,1 @@
+json.array! @monthly_self_examinations, partial: 'monthly_self_examinations/monthly_self_examination', as: :monthly_self_examination

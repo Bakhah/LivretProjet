@@ -29,6 +29,12 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
 gem 'awesome_print', '~> 1.7'
 
+gem 'rolify'
+
+gem 'cancancan'
+
+gem "tabs_on_rails"
+
 
 
 # Use ActiveModel has_secure_password
@@ -48,6 +54,10 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem 'annotate'
+  gem 'capistrano-rails', '~> 1.1'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
