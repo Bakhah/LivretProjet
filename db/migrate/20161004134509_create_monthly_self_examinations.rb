@@ -1,6 +1,7 @@
 class CreateMonthlySelfExaminations < ActiveRecord::Migration
   def change
-    drop_table :monthly_self_examinations
+
+    drop_table :monthly_self_examinations if ActiveRecord::Base.connection.table_exists? :monthly_self_examinations
     create_table :monthly_self_examinations do |t|
       t.string :periode
       t.string :what_ive_done
