@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'user_browser/index'
+
   resources :monthly_self_examinations
   devise_for :users, :controllers => { registrations: 'registrations' }
   root to: "home#index"
