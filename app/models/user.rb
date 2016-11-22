@@ -1,8 +1,8 @@
 # == Schema Information
-#
 # Table name: users
 #
 #  id                     :integer          not null, primary key
+#
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
     end
 
     after_create :assign_role
+
+    def get_complete_name
+      return self.first_name + " " + self.last_name
+    end
 
     def assign_role
         case role_at_creation
