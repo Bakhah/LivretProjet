@@ -14,6 +14,18 @@
 </div>
 <div class="row control-group">
     <div class="form-group col-xs-12 floating-label-form-group controls">
+        <%= f.text_field :address, required: true, autofocus: true, placeholder: "Adresse", class: "form-control" %>
+        <p class="help-block text-danger"></p>
+    </div>
+</div>
+<div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+        <%= f.text_field :phone_number, required: true, autofocus: true, placeholder: "Téléphone", class: "form-control" %>
+        <p class="help-block text-danger"></p>
+    </div>
+</div>
+<div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
         <%= f.email_field :email, required: true, autofocus: true, placeholder: "Email", class: "form-control" %>
         <p class="help-block text-danger"></p>
     </div>
@@ -30,6 +42,7 @@
         <p class="help-block text-danger"></p>
     </div>
 </div>
+
 <%= f.hidden_field :role_at_creation, :value => "student" %>
 
 <div class="actions">

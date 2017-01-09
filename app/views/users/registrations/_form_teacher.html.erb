@@ -20,6 +20,12 @@
 </div>
 <div class="row control-group">
     <div class="form-group col-xs-12 floating-label-form-group controls">
+        <%= f.text_field :phone_number, required: true, autofocus: true, placeholder: "Téléphone", class: "form-control" %>
+        <p class="help-block text-danger"></p>
+    </div>
+</div>
+<div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
         <%= f.password_field :password, required: true, autocomplete: "off", placeholder: "Mot de passe (6 caractères minimum)", class: "form-control" %>
         <p class="help-block text-danger"></p>
     </div>

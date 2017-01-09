@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102144224) do
+ActiveRecord::Schema.define(version: 20161223083822) do
 
   create_table "monthly_self_examinations", force: :cascade do |t|
     t.string   "periode"
@@ -38,6 +38,26 @@ ActiveRecord::Schema.define(version: 20161102144224) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
 
+  create_table "user", force: :cascade do |t|
+    t.string "first_name"
+  end
+
+  create_table "user_autocomplete", force: :cascade do |t|
+    t.string "first_name"
+  end
+
+  create_table "user_enum", force: :cascade do |t|
+    t.string "first_name"
+  end
+
+  create_table "user_name", force: :cascade do |t|
+    t.string "first_name"
+  end
+
+  create_table "user_names", force: :cascade do |t|
+    t.string "first_name"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -57,6 +77,10 @@ ActiveRecord::Schema.define(version: 20161102144224) do
     t.integer  "tutor_id"
     t.string   "role_at_creation"
     t.boolean  "profile_completed",      default: false
+    t.string   "address"
+    t.string   "phone_number"
+    t.string   "enterprise_position"
+    t.string   "enterprise_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

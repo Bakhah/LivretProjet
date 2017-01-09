@@ -7,9 +7,30 @@
     $(document).ready(function() {
       $("select#user_browser").select2({
       });
+
+      var template_url = $("form").attr("action");
+      $("form select").on("change", function (e) {
+
+        // template_url
+        var id = $(this).val();
+
+        console.log(id);
+        console.log(old_url);
+
+        //new_url = "debrouille toi"
+        var new_url = "dashboard/" + id + "/show";
+
+
+        $("form").attr("action", new_url);
+      });
+
     });
   </script>
-  <%= select_tag "user", options_from_collection_for_select(@users, :id, :get_complete_name), id: "user_browser", class: "col-md-6" %>
-  <%= link_to "Ok", root_path, class: "btn btn-info" %>
+
+  <%= form_tag(dashboard_show_path(:id), method: :get) do %>
+
+    <%= select_tag "user", options_from_collection_for_select(@users, :id, :get_complete_name), id: "user_browser", class: "col-md-6" %>
+    <%= submit_tag "Ok", class: "btn btn-info" %>
+  <% end %>
 
 </div>

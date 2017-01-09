@@ -14,6 +14,30 @@
 </div>
 <div class="row control-group">
     <div class="form-group col-xs-12 floating-label-form-group controls">
+        <%= f.text_field :enterprise_name, required: true, autofocus: true, placeholder: "Nom de l'entreprise", class: "form-control" %>
+        <p class="help-block text-danger"></p>
+    </div>
+</div>
+<div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+        <%= f.text_field :address, required: true, autofocus: true, placeholder: "Adresse de l'entreprise", class: "form-control" %>
+        <p class="help-block text-danger"></p>
+    </div>
+</div>
+<div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+        <%= f.text_field :enterprise_position, required: true, autofocus: true, placeholder: "Fonction dans l'entreprise", class: "form-control" %>
+        <p class="help-block text-danger"></p>
+    </div>
+</div>
+<div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+        <%= f.text_field :phone_number, required: true, autofocus: true, placeholder: "Téléphone", class: "form-control" %>
+        <p class="help-block text-danger"></p>
+    </div>
+</div>
+<div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
         <%= f.email_field :email, required: true, autofocus: true, placeholder: "Email", class: "form-control" %>
         <p class="help-block text-danger"></p>
     </div>

@@ -1,43 +1,7 @@
-<h2>Modifier votre compte</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>En attente de confirmation pour : <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :mot_de_passe %> <i>(Laissez la case vide pour ne pas le modifier)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> caractères minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :confirmer_le_mot_de_passe %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :mot_de_passe_actuel %> <i>(Nous avons besoin de votre mot de passe actuel pour confirmer votre changement)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Mettre à jour" %>
-  </div>
+<% if current_user.has_role? :student %>
+  <%= render "edit_student" %>
+<% elsif current_user.has_role? :teacher %>
+  <%= render "edit_teacher" %>
+<% elsif current_user.has_role? :tutor %>
+  <%= render "edit_tutor" %>
 <% end %>
-
-<h3>Supprimer mon compte</h3>
-
-<%= button_to "Supprimer", registration_path(resource_name), data: { confirm: "Êtes-vous sûr(e) de vouloir supprimer votre compte ?" }, method: :delete %></p>
-
-<%= link_to "Retour", :back %>
